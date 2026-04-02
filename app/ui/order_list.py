@@ -65,6 +65,8 @@ class OrderList:
         return self.user and self.user.role_id == 1
 
     def load_orders(self):
+        self.session.close()
+        self.session = db.get_session()
         for widget in self.container.winfo_children():
             widget.destroy()
 
